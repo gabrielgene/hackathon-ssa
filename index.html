@@ -109,6 +109,9 @@
               map: map,
               title: 'Estou Aqui'
             });
+            marker.addListener('click', function() {
+              alert("cliquei");
+            });
             marker.setMap(map);
 
             map.setCenter(pos);
@@ -136,7 +139,9 @@
         var checkboxArray = document.getElementById('start');
         if (checkboxArray.value == "1") {
           waypts = [
-                      {location :{lat: -12.973388, lng: -38.511714}, stopover: true},
+                      {location :{lat: -12.973388, lng: -38.511714}, stopover: true}.addListener('click', function() {
+
+                      }),
                       {location :{lat: -12.972242, lng: -38.510654}, stopover: true},
                    ]
         }
