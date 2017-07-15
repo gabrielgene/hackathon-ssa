@@ -81,6 +81,17 @@
           </div>
         </div>
       </div>
+
+      <div id="modal-qrcode" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              botar o QRCODE AQUI
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
     <script>
       function showModalRoutes() {
@@ -110,7 +121,7 @@
               title: 'Estou Aqui'
             });
             marker.addListener('click', function() {
-              alert("cliquei");
+              $('#modal-qrcode').modal('show');
             });
             marker.setMap(map);
 
