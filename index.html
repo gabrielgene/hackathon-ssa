@@ -7,23 +7,6 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <style>
-      #right-panel {
-        font-family: 'Roboto','sans-serif';
-        line-height: 30px;
-        padding-left: 10px;
-      }
-
-      #right-panel select, #right-panel input {
-        font-size: 15px;
-      }
-
-      #right-panel select {
-        width: 100%;
-      }
-
-      #right-panel i {
-        font-size: 12px;
-      }
       html, body {
         height: 100%;
         margin: 0;
@@ -32,29 +15,13 @@
       #map {
         height: 500px;
         float: left;
-        width: 500px;
-      }
-      #right-panel {
-        margin: 20px;
-        border-width: 2px;
-        width: 20%;
-        height: 400px;
-        float: left;
-        text-align: left;
-        padding-top: 0;
-      }
-      #directions-panel {
-        margin-top: 10px;
-        background-color: #FFEE77;
-        padding: 10px;
-        overflow: scroll;
-        height: 174px;
+        width: 100%;
       }
     </style>
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -62,7 +29,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Eu & Tour</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -74,15 +41,15 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container-fluid" style="padding: 50px ">
       <div id="map"></div>
       <div id="right-panel">
       <div>
-      <b>Start:</b>
+      <b>Selecione o roteiro:</b>
       <select id="start">
-        <option value="1">Valor1</option>
-        <option value="2">Valor2</option>
-        <option value="3">Valor3</option>
+        <option value="1">Passeio legal</option>
+        <option value="2">Comidas do CHS</option>
+        <option value="3">Bebidas & Baladas</option>
       </select>
       <br>
       <br>
@@ -132,7 +99,7 @@
           destination: {lat: -12.973460, lng: -38.510951},
           waypoints: waypts,
           optimizeWaypoints: true,
-          travelMode: 'DRIVING'
+          travelMode: 'WALKING'
         }, function(response, status) {
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
@@ -145,5 +112,10 @@
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdPvSWwm-ICKF1AEK0S48UKvj0FE3sd_U&callback=initMap">
     </script>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
   </body>
 </html>
