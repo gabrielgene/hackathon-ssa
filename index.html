@@ -85,6 +85,9 @@
       <div id="modal-qrcode" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
+            <div class="modal-header">
+              <p class="title"></p>
+            </div>
             <div class="modal-body">
               <iframe src="camera.html">
               </iframe>
@@ -159,6 +162,7 @@
       }
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var waypts_items = [];
         var waypts = [];
         var checkboxArray = document.getElementById('start');
         var end;
@@ -166,38 +170,39 @@
         deleteMarkers();
 
         if (checkboxArray.value == "1") {
-          waypts = [
-                      {location :{lat: -12.971104, lng: -38.508061}, stopover: true},
-                      {location :{lat: -12.974375, lng: -38.513061}, stopover: true},
+          waypts_items = [
+                      {name: 'Igreja Nossa Senhora do Rosário dos Pretos', item: {
+                        location :{lat: -12.971104, lng: -38.508061}
+                      }, stopover: true},
+                      {name: 'Igreja e Convento de São Francisco', item: {
+                        location :{lat: -12.974375, lng: -38.513061}
+                      }, stopover: true}
                    ];
+          waypts_items.forEach(function(el){
+            waypts.push(el.item)
+          });
+
 
           end = {
-            lat: -12.974190, lng:  -38.512865
+            name: 'Elevador Lacerda',
+            location: {
+              lat: -12.974190, lng: -38.512865
+            }
           }
         }
 
-        else if (checkboxArray.value == "2") {
-          waypts = [
-                      {location :{lat: -12.984388, lng: -38.512714}, stopover: true},
-                      {location :{lat: -12.975242, lng: -38.511654}, stopover: true},
-                   ]
-        } else {
-          waypts = [
-                      {location :{lat: -12.974388, lng: -38.521714}, stopover: true},
-                      {location :{lat: -12.975242, lng: -38.530654}, stopover: true},
-                   ]
-        }
-
         var i = 1;
-        waypts.forEach(function(el){
+        waypts_items.forEach(function(el){
           var marker = new google.maps.Marker({
-            position: el.location,
+            position: el.item.location,
             icon: 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=' + ([i]) + '|FF776B|000000',
             map: map,
-            title: 'Estou Aqui'
+            title: el.name
           });
           marker.addListener('click', function() {
-            $('#modal-qrcode').modal('show');
+            var modal = $('#modal-qrcode');
+            modal.find('.title').html(el.name);
+            modal.modal('show');
           });
           markers.push(marker);
 
@@ -205,20 +210,22 @@
         });
 
         var marker = new google.maps.Marker({
-          position: end,
+          position: end.location,
           icon: 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=' + ([i]) + '|FF776B|000000',
           map: map,
-          title: 'Estou Aqui'
+          title: end.name
         });
         marker.addListener('click', function() {
-          $('#modal-qrcode').modal('show');
+          var modal = $('#modal-qrcode');
+          modal.find('.title').html(end.name);
+          modal.modal('show');
         });
         markers.push(marker);
         console.log(markers);
 
         directionsService.route({
           origin: start,
-          destination: end,
+          destination: end.location,
           waypoints: waypts,
           optimizeWaypoints: true,
           travelMode: 'WALKING'
