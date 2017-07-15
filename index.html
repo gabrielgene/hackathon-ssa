@@ -64,21 +64,21 @@
       <div id="map"></div>
       <button type="button" class="btn btn-primary btn-action-map" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
 
-      <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div id="modal-roteiros" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="container">
               <div class="row">
                 <div class="col-xs-12">
-                  <b>Selecione o roteiro:</b>
-                  <select id="start">
-                    <option value="1">Passeio legal</option>
-                    <option value="2">Comidas do CHS</option>
-                    <option value="3">Bebidas & Baladas</option>
-                  </select>
-                  <br>
-                  <br>
-                  <input type="submit" id="submit">
+                  <div class="form-group">
+                    <label for="start">Selecione o roteiro</label>
+                    <select id="start" class="form-control">
+                      <option value="1">Passeio legal</option>
+                      <option value="2">Comidas do CHS</option>
+                      <option value="3">Bebidas & Baladas</option>
+                    </select>
+                  </div>
+                  <button type="submit" id="submit" class="btn btn-primary">Pronto</button>
                 </div>
               </div>
 
@@ -86,19 +86,6 @@
           </div>
         </div>
       </div>
-
-
-      <!--<div>
-        <b>Selecione o roteiro:</b>
-        <select id="start">
-          <option value="1">Passeio legal</option>
-          <option value="2">Comidas do CHS</option>
-          <option value="3">Bebidas & Baladas</option>
-        </select>
-        <br>
-        <br>
-          <input type="submit" id="submit">
-      </div>-->
     </div>
     <script>
       function showModalRoutes() {
@@ -142,12 +129,13 @@
         }
         directionsDisplay.setMap(map);
 
-        $('.change-route').on('change', function() {
-          console.log($(this).val());
-        });
-
         $('.btn-action-map').on('click', function(){
           showModalRoutes();
+        });
+
+        document.getElementById('submit').addEventListener('click', function() {
+          $('#modal-roteiros').modal('hide');
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
         });
       }
 
