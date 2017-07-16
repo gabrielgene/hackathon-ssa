@@ -225,14 +225,14 @@
           </p>
           <br/>
           <button type="submit" id="back" class="btn grey darken-3" onclick="restartModal()">Voltar</button>
-          <button type="submit" id="submit" class="btn black" disabled="disabled">Pronto</button>
+          <button type="submit" id="submit" class="btn black" disabled="disabled">Iniciar</button>
         </div>
       </div>
     </div>
   </div>
   <div id="modal-qrcode" class="modal">
     <div class="modal-content">
-      <h6 class="title"></h6>
+      <h6 class="title" style="display: none"></h6>
       <h7>Para fazer o check-in basta fazer a leitura do QrCode</h7>
       <div class="divider"></div>
       <div class="modal-body">
@@ -252,7 +252,7 @@
         <i class="material-icons">star</i>
         <i class="material-icons">star</i>
       </div>
-      <br /><button class="btn black" id="avaliar-tour">Pronto</button>
+      <br /><button class="btn black" id="avaliar-tour">Avaliar</button>
     </div>
   </div>
 
@@ -280,25 +280,25 @@
 
       // Set CSS for the control border.
       var controlUI = document.createElement('div');
-      controlUI.style.backgroundColor = '#fff';
-      controlUI.style.border = '2px solid #fff';
+      controlUI.style.backgroundColor = '#000';
+      controlUI.style.border = '2px solid #000';
       controlUI.style.borderRadius = '3px';
       controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
       controlUI.style.cursor = 'pointer';
       controlUI.style.margin = '10px';
       controlUI.style.textAlign = 'center';
-      controlUI.title = 'Ao chegar em um point clique no mapa.';
+      controlUI.title = 'Ao chegar em um ponto clique no marcador.';
       controlDiv.appendChild(controlUI);
 
       // Set CSS for the control interior.
       var controlText = document.createElement('div');
-      controlText.style.color = 'rgb(25,25,25)';
+      controlText.style.color = 'rgb(214,162,44)';
       controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
       controlText.style.fontSize = '14px';
       controlText.style.lineHeight = '24px';
       controlText.style.paddingLeft = '5px';
       controlText.style.paddingRight = '5px';
-      controlText.innerHTML = 'Ao chegar em um point clique no mapa.';
+      controlText.innerHTML = 'Ao chegar em um ponto clique no marcador.';
       controlUI.appendChild(controlText);
 
       // Setup the click event listeners: simply set the map to Chicago.
