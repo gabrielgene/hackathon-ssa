@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-<meta charset="utf-8">
-<title>Eu & Tour | Minhas rotas</title>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Eu & Tour | Minhas rotas</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  <style>
+    .logo-title {
+      top: 10px;
+      width: 200px;
+      position: relative;
+      height: 40px;
+    }
+
+    nav a {
+      color: #d6a22c;
+    }
+  </style>
 </head>
-  <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Eu & Tour</a>
+
+<body>
+  <nav class="light-blue black" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img class="logo-title" src="./assets/images/logo-horizontal-pelo.png"/></a>
       <ul id="slide-out" class="side-nav">
         <li>
           <div class="user-view">
@@ -53,43 +66,43 @@
   </nav>
   <div class="container">
     <table class="highlight">
-        <thead>
-          <tr>
-              <th>Tour</th>
-              <th>Nota</th>
-          </tr>
-        </thead>
+      <thead>
+        <tr>
+          <th>Tour</th>
+          <th>Nota</th>
+        </tr>
+      </thead>
 
-        <tbody id="tbody">
-        </tbody>
+      <tbody id="tbody">
+      </tbody>
     </table>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-          crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 
   <script>
-      $(function () {
+    $(function () {
 
-        $('.button-collapse').sideNav();
-        var storage_tours = localStorage.getItem('tours');
-        if(storage_tours != null){
-          storage_tours = JSON.parse(storage_tours);
-        }else{
-          storage_tours = [];
+      $('.button-collapse').sideNav();
+      var storage_tours = localStorage.getItem('tours');
+      if (storage_tours != null) {
+        storage_tours = JSON.parse(storage_tours);
+      } else {
+        storage_tours = [];
+      }
+
+      storage_tours.forEach(function (el) {
+        var nota = '';
+        for (var i = 0; i < el.nota; i++) {
+          nota = nota + '<i class="material-icons" style="color: #fec00f">star</i>';
         }
 
-        storage_tours.forEach(function(el){
-          var nota = '';
-          for(var i = 0; i < el.nota; i++){
-            nota = nota + '<i class="material-icons" style="color: #fec00f">star</i>';
-          }
-
-          $('#tbody').append('<tr><td>' + el.nome + '</td><td>' + nota + '</td></tr>');
-        });
+        $('#tbody').append('<tr><td>' + el.nome + '</td><td>' + nota + '</td></tr>');
       });
+    });
   </script>
 
 </body>
