@@ -137,7 +137,7 @@
     <div id="map"></div>
 
     <div class="btn-action-map">
-      <label class="waves-effect waves-light btn z-depth-4 black" style="top: 108px; position: fixed;">Ao chegar em um point clique no mapa.</label>
+      <label class="waves-effect waves-light btn z-depth-4 black" style="top: 108px; position: fixed; text-align: left; font-size: 13px;">Ao chegar em um point clique no mapa.</label>
     </div>
 
     <div class="btn-action-map">
@@ -201,7 +201,40 @@
       </div>
     </div>
   </div>
-  <div id="modal-qrcode" class="modal">
+  <div id="modal-qrcode0" class="modal">
+    <div class="modal-content">
+      <h6 class="title"></h6>
+      <h7>Para fazer o check-in basta fazer a leitura do QrCode</h7>
+      <div class="divider"></div>
+      <div class="modal-body">
+        <iframe class="frame" src="camera.html" height="100%" width="100%">
+        </iframe>
+      </div>
+    </div>
+  </div>
+  <div id="modal-qrcode1" class="modal">
+    <div class="modal-content">
+      <h6 class="title"></h6>
+      <h7>Para fazer o check-in basta fazer a leitura do QrCode</h7>
+      <div class="divider"></div>
+      <div class="modal-body">
+        <iframe class="frame" src="camera.html" height="100%" width="100%">
+        </iframe>
+      </div>
+    </div>
+  </div>
+  <div id="modal-qrcode2" class="modal">
+    <div class="modal-content">
+      <h6 class="title"></h6>
+      <h7>Para fazer o check-in basta fazer a leitura do QrCode</h7>
+      <div class="divider"></div>
+      <div class="modal-body">
+        <iframe class="frame" src="camera.html" height="100%" width="100%">
+        </iframe>
+      </div>
+    </div>
+  </div>
+  <div id="modal-qrcode3" class="modal">
     <div class="modal-content">
       <h6 class="title"></h6>
       <h7>Para fazer o check-in basta fazer a leitura do QrCode</h7>
@@ -254,7 +287,7 @@
           suppressMarkers: true
         });
         map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
+          zoom: 14,
           center: { lat: -12.9893222, lng: -38.5007595 }
         });
 
@@ -427,7 +460,7 @@
           title: el.name
         });
         marker.addListener('click', function () {
-          var modal = $('#modal-qrcode');
+          var modal = $('#modal-qrcode'+i);
           modal.find('.title').html(el.name);
           modal.modal('open');
         });
