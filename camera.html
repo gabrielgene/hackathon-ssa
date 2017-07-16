@@ -11,7 +11,8 @@
     <script type="text/javascript">
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       scanner.addListener('scan', function (content) {
-        console.log(content);
+        localStorage.setItem('desconto', 'zY35B');
+
         window.location = "info.html"
       });
       Instascan.Camera.getCameras().then(function (cameras) {

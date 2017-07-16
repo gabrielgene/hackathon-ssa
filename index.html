@@ -140,26 +140,44 @@
           <div class="form-group form-categoria">
             <label>Qual tipo de passeio você procura?</label>
             <div class="row">
-              <div class="col s3 card-categoria">
-                <img src="./assets/images/gastronomia.jpg" class="responsive-img" alt="...">
-                <p>Gastronômico</p>
-              </div>
-              <div class="col s3 card-categoria">
-                <img src="./assets/images/cultural.jpg" class="responsive-img" alt="...">
-                <p>Cultural</p>
-              </div>
-              <div class="col s3 card-categoria">
-                <img src="./assets/images/historico.jpg" class="responsive-img" alt="...">
-                <p>Histórico</p>
-              </div>
-              <div class="col s3 card-categoria">
-                <img src="./assets/images/baladas.jpg" class="responsive-img" alt="...">
-                <p>Baladas</p>
-              </div>
+              <ul>
+                <li>
+                  <div class="divider"></div>
+                </li>
+                <li style="margin-top: 10px">
+                  <img src="./assets/images/arquitetura.png" class="card-categoria" style="height: 36px" alt="...">
+                </li>
+                <li>
+                  <div class="divider"></div>
+                </li>
+                <li style="margin-top: 10px">
+                  <img src="./assets/images/musica.png" class="card-categoria" style="height: 36px" alt="...">
+                </li>
+                <li>
+                  <div class="divider"></div>
+                </li>
+                <li style="margin-top: 10px">
+                  <img src="./assets/images/religiao.png" class="card-categoria" style="height: 36px" alt="...">
+                </li>
+                <li>
+                  <div class="divider"></div>
+                </li>
+                <li style="margin-top: 10px">
+                  <img src="./assets/images/gastronomia.png" class="card-categoria" style="height: 36px" alt="...">
+                </li>
+                <li>
+                  <div class="divider"></div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
         <div class="form-group form-roteiro" style="display: none">
+
+          <p>
+            <input type="checkbox" class="filled-in" id="filled-in-box" />
+            <label for="filled-in-box">Sou cadeirante</label>
+          </p>
           <div class="input-field col s12">
             <select id="start">
                   <option value="" disabled selected>Escolha o Roteiro</option>
@@ -167,7 +185,6 @@
                   <option value="2">Comidas do CHS</option>
                   <option value="3">Bebidas & Baladas</option>
                 </select>
-            <label>Selecione o roteiro</label>
           </div>
           <p class="descricao-roteiro">
           </p>
