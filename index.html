@@ -201,7 +201,7 @@
       </div>
     </div>
   </div>
-  <div id="modal-qrcode0" class="modal">
+  <div id="modal-qrcode" class="modal">
     <div class="modal-content">
       <h6 class="title"></h6>
       <h7>Para fazer o check-in basta fazer a leitura do QrCode</h7>
@@ -278,7 +278,10 @@
       $(function () {
         $('.button-collapse').sideNav();
         $('#modal-roteiros').modal();
-        $('#modal-qrcode').modal();
+        $('#modal-qrcode0').modal();
+        $('#modal-qrcode1').modal();
+        $('#modal-qrcode2').modal();
+        $('#modal-qrcode3').modal();
         $('#modal-avaliar-tour').modal();
         $('select').material_select();
 
@@ -299,7 +302,6 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
 
             var marker = new google.maps.Marker({
               position: start,
