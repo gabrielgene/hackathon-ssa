@@ -190,7 +190,7 @@
           </div>
           <p class="descricao-roteiro">
           </p>
-          <br/><button type="submit" id="submit" class="btn btn-primary">Pronto</button>
+          <br/><button type="submit" id="submit" class="btn black" disabled="disabled">Pronto</button>
         </div>
       </div>
     </div>
@@ -217,7 +217,7 @@
         <i class="material-icons">star</i>
         <i class="material-icons">star</i>
       </div>
-      <br /><button class="btn btn-primary" id="avaliar-tour">Pronto</button>
+      <br /><button class="btn black" id="avaliar-tour">Pronto</button>
     </div>
   </div>
 
@@ -301,6 +301,8 @@
           }
 
           $('.descricao-roteiro').html(texto);
+
+          $('#submit').prop('disabled', false);
         });
 
         $('.stars').on('click', 'i', function(){
