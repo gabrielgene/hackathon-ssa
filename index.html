@@ -306,11 +306,22 @@
 
     }
 
+    function restartModal(){
+      $('.form-categoria').show();
+      $('.form-roteiro').hide();
+    }
+
+    function closeQrModal(){
+      console.log('hey');
+      $('iframe').attr('src', 'camera.html')
+    }
+
     function initMap() {
       $(function () {
         $('.button-collapse').sideNav();
-        $('#modal-roteiros').modal();
-        $('#modal-qrcode').modal();
+        $('#modal-roteiros').modal({
+          complete:  restartModal
+        });
         $('#modal-avaliar-tour').modal();
         $('select').material_select();
 
@@ -523,7 +534,6 @@
         modal.modal('open');
       });
       markers.push(marker);
-      console.log(markers);
 
       directionsService.route({
         origin: start,
