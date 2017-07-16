@@ -147,10 +147,6 @@
     <div id="map"></div>
 
     <div class="btn-action-map">
-      <label class="waves-effect waves-light btn z-depth-4 black" style="top: 108px; position: fixed; text-align: left; font-size: 13px;">Ao chegar em um point clique no mapa.</label>
-    </div>
-
-    <div class="btn-action-map">
       <button id="ver-roteiros" class="waves-effect waves-light btn z-depth-4 black" data-target="modal-roteiros">Realizar Tour</button>
       <button id="encerrar-tour" class="waves-effect waves-light btn z-depth-4 red darken-4" data-target="modal-avaliar-tour" style="display: none">Encerrar Tour</button>
     </div>
@@ -199,6 +195,27 @@
             <input type="checkbox" class="filled-in" id="filled-in-box" />
             <label for="filled-in-box">Sou cadeirante</label>
           </p>
+
+          <div class="input-field col s12">
+            <select>
+              <option value="" disabled selected style="display: none">Selecione o turno</option>
+              <option value="manha">Manhã</option>
+              <option value="tarde">Tarde</option>
+              <option value="noite">Noite</option>
+            </select>
+          </div>
+
+
+          <div class="input-field col s12">
+            <select>
+              <option value="" disabled selected style="display: none">Quanto quer gastar?</option>
+              <option value="100">Até 100 reais</option>
+              <option value="300">Até 300 reais</option>
+              <option value="500">Até 500 reais</option>
+              <option value="501">Mais que 500 reais</option>
+            </select>
+          </div>
+
           <div class="input-field col s12">
             <select id="start">
                   <option value="" disabled selected style="display: none">Escolha o Roteiro</option>
@@ -253,6 +270,44 @@
 
     ];
 
+    /**
+     * The CenterControl adds a control to the map that recenters the map on
+     * Chicago.
+     * This constructor takes the control DIV as an argument.
+     * @constructor
+     */
+    function CenterControl(controlDiv, map) {
+
+      // Set CSS for the control border.
+      var controlUI = document.createElement('div');
+      controlUI.style.backgroundColor = '#fff';
+      controlUI.style.border = '2px solid #fff';
+      controlUI.style.borderRadius = '3px';
+      controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+      controlUI.style.cursor = 'pointer';
+      controlUI.style.margin = '10px';
+      controlUI.style.textAlign = 'center';
+      controlUI.title = 'Ao chegar em um point clique no mapa.';
+      controlDiv.appendChild(controlUI);
+
+      // Set CSS for the control interior.
+      var controlText = document.createElement('div');
+      controlText.style.color = 'rgb(25,25,25)';
+      controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+      controlText.style.fontSize = '14px';
+      controlText.style.lineHeight = '24px';
+      controlText.style.paddingLeft = '5px';
+      controlText.style.paddingRight = '5px';
+      controlText.innerHTML = 'Ao chegar em um point clique no mapa.';
+      controlUI.appendChild(controlText);
+
+      // Setup the click event listeners: simply set the map to Chicago.
+      controlUI.addEventListener('click', function() {
+        map.setCenter(chicago);
+      });
+
+    }
+
     function initMap() {
       $(function () {
         $('.button-collapse').sideNav();
@@ -267,8 +322,17 @@
         });
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 14,
+          mapTypeControl: false,
           center: { lat: -12.9893222, lng: -38.5007595 }
         });
+
+        // Create the DIV to hold the control and call the CenterControl()
+        // constructor passing in this DIV.
+        var centerControlDiv = document.createElement('div');
+        var centerControl = new CenterControl(centerControlDiv, map);
+
+        centerControlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
@@ -369,6 +433,7 @@
           $('#encerrar-tour').hide();
 
           deleteMarkers();
+          directionsDisplay.setMap(null);
         });
       });
     }
