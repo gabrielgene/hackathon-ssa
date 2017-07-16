@@ -206,7 +206,9 @@
           </div>
           <p class="descricao-roteiro">
           </p>
-          <br/><button type="submit" id="submit" class="btn black" disabled="disabled">Pronto</button>
+          <br/>
+          <button type="submit" id="submit" class="btn black" disabled="disabled">Pronto</button>
+          <button type="submit" id="back" class="btn black">Voltar</button>
         </div>
       </div>
     </div>
@@ -299,6 +301,11 @@
           $('#encerrar-tour').show();
           calculateAndDisplayRoute(directionsService, directionsDisplay);
         });
+
+        document.getElementById('back').addEventListener('click', function (){
+          $('#modal-roteiros').modal('open');
+          $('modal')
+        })
 
         $('.card-categoria').on('click', function () {
 
