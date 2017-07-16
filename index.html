@@ -236,7 +236,7 @@
       <h7>Para fazer o check-in basta fazer a leitura do QrCode</h7>
       <div class="divider"></div>
       <div class="modal-body">
-        <iframe id="myFrame" class="frame" src="camera.html" height="100%" width="100%">
+        <iframe id="myFrame" class="frame" height="100%" width="100%">
         </iframe>
       </div>
     </div>
@@ -520,6 +520,7 @@
         });
         marker.addListener('click', function () {
           var modal = $('#modal-qrcode');
+          $('iframe').attr('src', 'camera.html');
           modal.find('.title').html(el.name);
           modal.modal('open');
         });
@@ -537,6 +538,7 @@
       });
       marker.addListener('click', function () {
         var modal = $('#modal-qrcode');
+        $('iframe').attr('src', 'camera.html');
         modal.find('.title').html(end.name);
         modal.modal('open');
       });
