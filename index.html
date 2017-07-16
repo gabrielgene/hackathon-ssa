@@ -137,7 +137,11 @@
                   <option value="2">Comidas do CHS</option>
                   <option value="3">Bebidas & Baladas</option>
                 </select>
-              <label>Selecione o roteiro</label>
+                <label>Selecione o roteiro</label>
+              </div>
+              <p class="descricao-roteiro">
+              </p>
+              <br/><button type="submit" id="submit" class="btn btn-primary">Pronto</button>
             </div>
             <br/><button type="submit" id="submit" class="btn btn-primary">Pronto</button>
           </div>
@@ -202,11 +206,21 @@
         }
         directionsDisplay.setMap(map);
 
-        document.getElementById('submit').addEventListener('click', function () {
-          $('#modal-roteiros').modal('close');
-          $('.form-categoria').show();
-          $('.form-roteiro').hide();
-          calculateAndDisplayRoute(directionsService, directionsDisplay);
+          $('.card-categoria').on('click', function () {
+            $('.form-categoria').hide();
+            $('.form-roteiro').show();
+          });
+
+          $('#start').on('change', function(){
+            var texto;
+
+            if($(this).val() == '1'){
+              texto = "Esse é o passeio legal.<br>Você vai conhecer coisas legais e o Elevador Lacerda.<br>" +
+                  "Caso queira contratar um guia: Ligue para seu João (71) 99127-2774."
+            }
+
+            $('.descricao-roteiro').html(texto)
+          });
         });
 
         $('.card-categoria').on('click', function () {
