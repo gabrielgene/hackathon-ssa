@@ -1,7 +1,8 @@
 <html>
+
 <head>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <style>
     body {
@@ -14,14 +15,9 @@
       flex: 1 0 auto;
     }
 
-    body {
-      background: #000000;
-    }
-
-    .input-field input[type=date]:focus + label,
-    .input-field input[type=text]:focus + label,
-    .input-field input[type=email]:focus + label,
-    .input-field input[type=password]:focus + label {
+    .input-field input[type=text]:focus+label,
+    .input-field input[type=email]:focus+label,
+    .input-field input[type=password]:focus+label {
       color: #167a7a;
     }
 
@@ -32,7 +28,25 @@
       border-bottom: 2px solid #167a7a;
       box-shadow: none;
     }
+
     h5 {
+      color: #167a7a;
+    }
+
+    .color {
+      background-color: #000000;
+      color: #d6a22c;
+    }
+
+    body {
+      background: #000000;
+    }
+
+    a {
+      color: #167a7a;
+    }
+
+    .text {
       color: #d6a22c;
     }
   </style>
@@ -44,7 +58,7 @@
     <center>
       <div class="section"></div>
 
-      <h5 class="indigo-text">Please, login into your account</h5>
+      <h5 class="">Please, login into your account</h5>
       <div class="section"></div>
 
       <div class="container">
@@ -69,14 +83,14 @@
                 <label for='password'>Enter your password</label>
               </div>
               <label style='float: right;'>
-								<a class='pink-text' href='#!'><b>Forgot Password?</b></a>
+								<a class='text' href='#!'><b>Forgot Password?</b></a>
 							</label>
             </div>
 
             <br />
             <center>
               <div class='row'>
-                <a class="col s12 btn btn-large waves-effect indigo" href="index.html">Login</a>
+                <a id="login" class="col s12 btn btn-large waves-effect color">Login</a>
               </div>
             </center>
           </form>
@@ -91,6 +105,18 @@
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script>
+    $("#login").on('click', function () {
+      const user = document.getElementById("email").value
+      const pass = document.getElementById("password").value
+      if (user === "visitante@gmail.com" && pass === "123456") {
+        window.location.href = "index.html"
+      } else {
+        alert("login ou senha errada")
+      }
+      return false;
+    });
+  </script>
 </body>
 
 </html>
