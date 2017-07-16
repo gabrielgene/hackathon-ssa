@@ -4,7 +4,9 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
-<title>Waypoints in directions</title>
+<meta name="mobile-web-app-capable" content="yes">
+<title>Eu & Tour</title>
+<link rel="icon" type="image/png" href="./assets/images/fav.png" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
@@ -132,26 +134,26 @@
                 <li>
                   <div class="divider"></div>
                 </li>
-                <li style="margin-top: 10px">
-                  <img src="./assets/images/arquitetura.png" class="card-categoria" style="height: 36px" alt="...">
+                <li style="margin-top: 10px" class="card-categoria">
+                  <img src="./assets/images/arquitetura.png" style="height: 36px" alt="...">
                 </li>
                 <li>
                   <div class="divider"></div>
                 </li>
-                <li style="margin-top: 10px">
-                  <img src="./assets/images/musica.png" class="card-categoria" style="height: 36px" alt="...">
+                <li style="margin-top: 10px" class="card-categoria">
+                  <img src="./assets/images/musica.png" style="height: 36px" alt="...">
                 </li>
                 <li>
                   <div class="divider"></div>
                 </li>
-                <li style="margin-top: 10px">
-                  <img src="./assets/images/religiao.png" class="card-categoria" style="height: 36px" alt="...">
+                <li style="margin-top: 10px" class="card-categoria">
+                  <img src="./assets/images/religiao.png" style="height: 36px" alt="...">
                 </li>
                 <li>
                   <div class="divider"></div>
                 </li>
-                <li style="margin-top: 10px">
-                  <img src="./assets/images/gastronomia.png" class="card-categoria" style="height: 36px" alt="...">
+                <li style="margin-top: 10px" class="card-categoria">
+                  <img src="./assets/images/gastronomia.png" style="height: 36px" alt="...">
                 </li>
                 <li>
                   <div class="divider"></div>
@@ -375,7 +377,8 @@
       waypts_items.forEach(function (el) {
         var marker = new google.maps.Marker({
           position: el.item.location,
-          icon: 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=' + ([i]) + '|FF776B|000000',
+          //icon: 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=' + ([i]) + '|FF776B|000000',
+          icon: './assets/images/' + ([i]) + '.png',
           map: map,
           title: el.name
         });
@@ -391,7 +394,8 @@
 
       var marker = new google.maps.Marker({
         position: end.location,
-        icon: 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=' + ([i]) + '|FF776B|000000',
+        //icon: 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=' + ([i]) + '|FF776B|000000',
+        icon: './assets/images/' + ([i]) + '.png',
         map: map,
         title: end.name
       });
