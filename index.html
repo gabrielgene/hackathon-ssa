@@ -2,73 +2,72 @@
 <html>
 
 <head>
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  <meta charset="utf-8">
-  <title>Waypoints in directions</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<title>Waypoints in directions</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 
-  <style>
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
-    #map {
-      height: 100%;
-      float: left;
-      width: 100%;
-    }
+  #map {
+    height: 100%;
+    float: left;
+    width: 100%;
+  }
 
-    .btn-action-map {
-      position: absolute;
-      bottom: 30px;
-      width: 100%;
-      text-align: center;
-    }
+  .btn-action-map {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+  }
 
-    .card-categoria {
-      cursor: pointer;
-    }
+  .card-categoria {
+    cursor: pointer;
+  }
 
-    .card-categoria:hover .thumbnail {
-      background-color: #f4f4f4;
-    }
+  .card-categoria:hover .thumbnail {
+    background-color: #f4f4f4;
+  }
 
-    .modal {
-      overflow-y: visible;
-    }
+  .modal {
+    overflow-y: visible;
+  }
 
-    .modal-content {
-      height: 100%;
-    }
+  .modal-content {
+    height: 100%;
+  }
 
-    .frame {
-      height: 300px;
-      width: 100%;
-      border: none;
-    }
+  .frame {
+    height: 300px;
+    width: 100%;
+    border: none;
+  }
 
-    .modal-body {
-      height: 100%;
-    }
+  .modal-body {
+    height: 100%;
+  }
 
-      .stars{
-        direction: rtl;
-      }
-
-      .stars i{
-        color: lightgray;
-      }
-
-      .stars i:hover, .stars i:hover ~ i{
-        color: #fec00f;
-      }
-    </style>
-  </head>
+  .stars{
+    direction: rtl;
+  }
+  .stars i{
+    cursor: pointer;
+    color: lightgray;
+  }
+  .stars i:hover, .stars i:hover ~ i, .stars i.selected, .stars i.selected ~ i{
+    color: #fec00f;
+  }
+</style>
+</head>
   <body>
     <nav class="light-blue lighten-1" role="navigation">
       <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Eu & Tour</a>
@@ -130,7 +129,6 @@
           </p>
           <br/><button type="submit" id="submit" class="btn btn-primary">Pronto</button>
         </div>
-        <br/><button type="submit" id="submit" class="btn btn-primary">Pronto</button>
       </div>
     </div>
   </div>
@@ -150,11 +148,11 @@
     <div class="modal-content">
       <p class="title"></p>
       <div class="modal-body stars">
-        <i class="material-icons">stars</i>
-        <i class="material-icons">stars</i>
-        <i class="material-icons">stars</i>
-        <i class="material-icons">stars</i>
-        <i class="material-icons">stars</i>
+        <i class="material-icons">star</i>
+        <i class="material-icons">star</i>
+        <i class="material-icons">star</i>
+        <i class="material-icons">star</i>
+        <i class="material-icons">star</i>
       </div>
     </div>
   </div>
@@ -230,8 +228,12 @@
 
             $('.descricao-roteiro').html(texto);
           });
+
+        $('.stars').on('click', 'i', function(){
+          $(this).addClass('selected');
         });
-      }
+      });
+    }
 
     // Sets the map on all markers in the array.
     function setMapOnAll(map) {
