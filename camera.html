@@ -15,8 +15,14 @@
     let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
     scanner.addListener('scan', function (content) {
       localStorage.setItem('desconto', 'zY35B');
-
-      window.location = "info.html"
+      console.log(content);
+      if (content == "a") {
+        window.location = "info.html";
+      } else if (content == "b") {
+        window.location = "info1.html";
+      } else {
+        window.location = "info2.html";
+      }
     });
     Instascan.Camera.getCameras().then(function (cameras) {
       if (cameras.length > 0) {
