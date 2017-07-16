@@ -2,16 +2,21 @@
 <html>
 
 <head>
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-<meta charset="utf-8">
-<title>Waypoints in directions</title>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
-
-</style>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Waypoints in directions</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  <style>
+    .stars .material-icons {
+      color: #fec00f;
+      width: 20px;
+    }
+  </style>
 </head>
-  <body>
+
+<body>
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Eu & Tour</a>
       <ul id="slide-out" class="side-nav">
@@ -54,36 +59,42 @@
       </ul>
     </div>
   </nav>
-  <table class="striped">
-        <thead>
-          <tr>
-              <th>Nome</th>
-              <th>Nota</th>
-          </tr>
-        </thead>
+  <div class=container>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Telefone</th>
+          <th>Avaliação</th>
+        </tr>
+      </thead>
 
-        <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-          </tr>
-        </tbody>
-      </table>
-
+      <tbody class="stars">
+        <tr>
+          <td>Carlos</td>
+          <td>(71)9999-9999</td>
+          <td style="width: 150px;"><i class="material-icons">start</i><i class="material-icons">start</i><i class="material-icons">start</i></td>
+        </tr>
+        <tr>
+          <td>Alan</td>
+          <td>(71)9999-9999</td>
+          <td><i class="material-icons">start</i><i class="material-icons">start</i></td>
+        </tr>
+        <tr>
+          <td>Jonathan</td>
+          <td>(71)9999-9999</td>
+          <td><i class="material-icons">start</i><i class="material-icons">start</i><i class="material-icons">start</i><i class="material-icons">start</i>
+            <i class="material-icons">start</i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
   <script>
-      $(function () {
-        $('.button-collapse').sideNav();
-      });
+    $(function () {
+      $('.button-collapse').sideNav();
+    });
   </script>
 
 
