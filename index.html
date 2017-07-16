@@ -47,6 +47,52 @@
     }
 
     .frame {
+      height: 300px;
+      width: 100%;
+      border: none;
+    }
+
+    .modal-body {
+      height: 100%;
+    }
+
+    <head><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><meta charset="utf-8"><title>Waypoints in directions</title><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!-- Compiled and minified CSS --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css"><style>html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      height: 100%;
+      float: left;
+      width: 100%;
+    }
+
+    .btn-action-map {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .card-categoria {
+      cursor: pointer;
+    }
+
+    .card-categoria:hover .thumbnail {
+      background-color: #f4f4f4;
+    }
+
+    .modal {
+      overflow-y: visible;
+    }
+
+    .modal-content {
+      height: 100%;
+    }
+
+    .frame {
       height: 100%;
       width: 100%;
       border: none;
@@ -102,10 +148,11 @@
     <div id="map"></div>
 
     <div class="btn-action-map">
-      <button class="waves-effect waves-light btn z-depth-4" data-target="modal-roteiros">Ver Roteiros</button>
+      <button id="ver-roteiros" class="waves-effect waves-light btn z-depth-4" data-target="modal-roteiros">Ver Roteiros</button>
+      <button id="encerrar-tour" class="waves-effect waves-light btn z-depth-4 red darken-4" data-target="modal-avaliar-tour" style="display: none">Encerrar Tour</button>
     </div>
 
-    <div id="modal-roteiros" class="modal bottom-sheet">
+    <div id="modal-roteiros" class="modal" style="min-height: 301px">
       <div class="modal-content">
         <div class="modal-body">
           <div class="form-group form-categoria">
@@ -129,35 +176,50 @@
               </div>
             </div>
           </div>
-          <div class="form-group form-roteiro" style="display: none">
-            <div class="input-field col s12">
-              <select id="start">
+        </div>
+        <div class="form-group form-roteiro" style="display: none">
+          <div class="input-field col s12">
+            <select id="start">
                   <option value="" disabled selected>Escolha o Roteiro</option>
                   <option value="1">Passeio legal</option>
                   <option value="2">Comidas do CHS</option>
                   <option value="3">Bebidas & Baladas</option>
                 </select>
-                <label>Selecione o roteiro</label>
-              </div>
-              <p class="descricao-roteiro">
-              </p>
-              <br/><button type="submit" id="submit" class="btn btn-primary">Pronto</button>
-            </div>
-            <br/><button type="submit" id="submit" class="btn btn-primary">Pronto</button>
+            <label>Selecione o roteiro</label>
           </div>
+          <p class="descricao-roteiro">
+          </p>
+          <br/><button type="submit" id="submit" class="btn btn-primary">Pronto</button>
         </div>
+        <br/><button type="submit" id="submit" class="btn btn-primary">Pronto</button>
       </div>
     </div>
+  </div>
+  </div>
 
-    <div id="modal-qrcode" class="modal">
-      <div class="modal-content">
-        <p class="title"></p>
-        <div class="modal-body">
-          <iframe class="frame" src="camera.html">
-          </iframe>
-        </div>
+  <div id="modal-qrcode" class="modal">
+    <div class="modal-content">
+      <p class="title"></p>
+      <div class="modal-body">
+        <iframe class="frame" src="camera.html" height="100%" width="100%">
+        </iframe>
       </div>
     </div>
+  </div>
+
+  <div id="modal-avaliar-tour" class="modal">
+    <div class="modal-content">
+      <p class="title"></p>
+      <div class="modal-body stars">
+        <i class="material-icons">stars</i>
+        <i class="material-icons">stars</i>
+        <i class="material-icons">stars</i>
+        <i class="material-icons">stars</i>
+        <i class="material-icons">stars</i>
+      </div>
+    </div>
+  </div>
+  </div>
 
   </div>
   <script>
@@ -196,38 +258,44 @@
               title: 'Estou Aqui'
             });
 
-            map.setCenter(start);
-          }, function () {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
+            document.getElementById('submit').addEventListener('click', function () {
+              $('#modal-roteiros').modal('close');
+              $('.form-categoria').show();
+              $('.form-roteiro').hide();
+              $('#ver-roteiros').hide();
+              $('#encerrar-tour').show();
+              calculateAndDisplayRoute(directionsService, directionsDisplay);
+            });
+          } else {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
         directionsDisplay.setMap(map);
 
-          $('.card-categoria').on('click', function () {
-            $('.form-categoria').hide();
-            $('.form-roteiro').show();
-          });
-
-          $('#start').on('change', function(){
-            var texto;
-
-            if($(this).val() == '1'){
-              texto = "Esse é o passeio legal.<br>Você vai conhecer coisas legais e o Elevador Lacerda.<br>" +
-                  "Caso queira contratar um guia: Ligue para seu João (71) 99127-2774."
-            }
-
-            $('.descricao-roteiro').html(texto)
-          });
-        });
-
         $('.card-categoria').on('click', function () {
           $('.form-categoria').hide();
           $('.form-roteiro').show();
         });
+
+        $('#start').on('change', function () {
+          var texto = '';
+
+          $('.descricao-roteiro').html(texto);
+
+          if ($(this).val() == '1') {
+            texto = "Esse é o passeio legal.<br>Você vai conhecer coisas legais e o Elevador Lacerda.<br>" +
+              "Caso queira contratar um guia: Ligue para seu João (71) 99127-2774."
+          }
+
+          $('.descricao-roteiro').html(texto);
+        });
       });
+
+      $('.card-categoria').on('click', function () {
+        $('.form-categoria').hide();
+        $('.form-roteiro').show();
+      });
+    });
     }
 
     // Sets the map on all markers in the array.
