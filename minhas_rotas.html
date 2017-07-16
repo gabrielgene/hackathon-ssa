@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
@@ -9,7 +8,6 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 
-</style>
 </head>
   <body>
   <nav class="light-blue lighten-1" role="navigation">
@@ -25,7 +23,7 @@
             <a href="#!email"><span class="white-text email">mariaclaudia@gmail.com</span></a>
           </div>
         </li>
-        <li><a class="waves-effect" href="/"><i class="material-icons">location_on</i>Inicio</a></li>
+        <li><a class="waves-effect" href="./"><i class="material-icons">location_on</i>Inicio</a></li>
         <li>
           <div class="divider"></div>
         </li>
@@ -51,44 +49,48 @@
         </li>
       </ul>
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-      </ul>
     </div>
   </nav>
-  <table class="striped">
+  <div class="container">
+    <table class="highlight">
         <thead>
           <tr>
-              <th>Nome</th>
+              <th>Tour</th>
               <th>Nota</th>
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-          </tr>
+        <tbody id="tbody">
         </tbody>
-      </table>
+    </table>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-  <script>
-      $(function () {
-        $('.button-collapse').sideNav();
-      });
-  </script>
-
-
+          crossorigin="anonymous"></script>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+
+  <script>
+      $(function () {
+
+        $('.button-collapse').sideNav();
+        var storage_tours = localStorage.getItem('tours');
+        if(storage_tours != null){
+          storage_tours = JSON.parse(storage_tours);
+        }else{
+          storage_tours = [];
+        }
+
+        storage_tours.forEach(function(el){
+          var nota = '';
+          for(var i = 0; i < el.nota; i++){
+            nota = nota + '<i class="material-icons" style="color: #fec00f">star</i>';
+          }
+
+          $('#tbody').append('<tr><td>' + el.nome + '</td><td>' + nota + '</td></tr>');
+        });
+      });
+  </script>
 
 </body>
 
