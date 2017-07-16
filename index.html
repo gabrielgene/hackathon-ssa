@@ -217,7 +217,7 @@
       <h7>Para fazer o check-in basta fazer a leitura do QrCode</h7>
       <div class="divider"></div>
       <div class="modal-body">
-        <iframe class="frame" src="camera.html" height="100%" width="100%">
+        <iframe id="myFrame" class="frame" src="camera.html" height="100%" width="100%">
         </iframe>
       </div>
     </div>
@@ -478,6 +478,11 @@
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdPvSWwm-ICKF1AEK0S48UKvj0FE3sd_U&callback=initMap">
 
+  </script>
+  <script>
+    iframe.onload =function() {
+      setTimeout(() => console.log("reaload"), 3000);
+    }
   </script>
 
 
