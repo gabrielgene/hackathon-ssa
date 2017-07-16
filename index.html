@@ -2,100 +2,111 @@
 <html>
 
 <head>
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-<meta charset="utf-8">
-<meta name="mobile-web-app-capable" content="yes">
-<title>Eu & Tour</title>
-<link rel="icon" type="image/png" href="./assets/images/fav.png" />
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Eu & Tour</title>
+  <link rel="icon" type="image/png" href="./assets/images/fav.png" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 
-<style>
-  html,
-  body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
-  #map {
-    height: 100%;
-    float: left;
-    width: 100%;
-  }
+    #map {
+      height: 100%;
+      float: left;
+      width: 100%;
+    }
 
-  .btn-action-map {
-    position: absolute;
-    bottom: 30px;
-    width: 100%;
-    text-align: center;
-  }
+    .btn-action-map {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+    }
 
-  .card-categoria {
-    cursor: pointer;
-  }
+    .card-categoria {
+      cursor: pointer;
+    }
 
-  .card-categoria:hover .thumbnail {
-    background-color: #f4f4f4;
-  }
+    .card-categoria:hover .thumbnail {
+      background-color: #f4f4f4;
+    }
 
-  .modal {
-    overflow-y: visible;
-    max-height: 100%;
-  }
+    .modal {
+      overflow-y: visible;
+      max-height: 100%;
+    }
 
-  .modal-content {
-    height: 100%;
-  }
+    .modal-content {
+      height: 100%;
+    }
 
-  .frame {
-    height: 300px;
-    width: 100%;
-    border: none;
-  }
+    .frame {
+      height: 300px;
+      width: 100%;
+      border: none;
+    }
 
-  .modal-body {
-    height: 100%;
-  }
+    .modal-body {
+      height: 100%;
+    }
 
-  .stars{
-    direction: rtl;
-    text-align: left;
-  }
-  .stars i{
-    cursor: pointer;
-    color: lightgray;
-  }
-  .stars i:hover, .stars i:hover ~ i, .stars i.selected, .stars i.selected ~ i{
-    color: #fec00f;
-  }
-  .logo-title{
-    top: 10px;
-    width: 200px;
-    position: relative;
-    height: 40px;
-  }
-  nav a {
-    color: #d6a22c;
-  }
-  .btn {
-    color: #d6a22c;
-  }
-  .btn-action-map{
-    display: flex;
-    justify-content: center;
-  }
-</style>
+    .stars {
+      direction: rtl;
+      text-align: left;
+    }
+
+    .stars i {
+      cursor: pointer;
+      color: lightgray;
+    }
+
+    .stars i:hover,
+    .stars i:hover~i,
+    .stars i.selected,
+    .stars i.selected~i {
+      color: #fec00f;
+    }
+
+    .logo-title {
+      top: 10px;
+      width: 200px;
+      position: relative;
+      height: 40px;
+    }
+
+    nav a {
+      color: #d6a22c;
+    }
+
+    .btn {
+      color: #d6a22c;
+    }
+
+    .btn-action-map {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
 </head>
-  <body>
+
+<body>
   <nav class="light-blue black" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img class="logo-title" src="./assets/images/logo-horizontal-pelo.png"/></a>
       <ul id="slide-out" class="side-nav">
         <li>
           <div class="user-view">
             <div class="background">
-              <img src="http://www.firstclassbus.com.br/wp-content/uploads/2015/04/Casarios-Centro-Historico-Foto-Rita-Barreto-3454-630x300.jpg"/>
+              <img src="http://www.firstclassbus.com.br/wp-content/uploads/2015/04/Casarios-Centro-Historico-Foto-Rita-Barreto-3454-630x300.jpg"
+              />
             </div>
             <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
             <a href="#!name"><span class="white-text name">Maria Claudia</span></a>
@@ -118,9 +129,8 @@
         <li>
           <div class="divider"></div>
         </li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">settings</i>Configuração</a></li
-        <li>
-          <div class="divider"></div>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">settings</i>Configuração</a></li <li>
+        <div class="divider"></div>
         </li>
         <li><a class="waves-effect" href="login.html"><i class="material-icons">power_settings_new</i>Sair</a></li>
         <li>
@@ -201,40 +211,7 @@
       </div>
     </div>
   </div>
-  <div id="modal-qrcode0" class="modal">
-    <div class="modal-content">
-      <h6 class="title"></h6>
-      <h7>Para fazer o check-in basta fazer a leitura do QrCode</h7>
-      <div class="divider"></div>
-      <div class="modal-body">
-        <iframe class="frame" src="camera.html" height="100%" width="100%">
-        </iframe>
-      </div>
-    </div>
-  </div>
-  <div id="modal-qrcode1" class="modal">
-    <div class="modal-content">
-      <h6 class="title"></h6>
-      <h7>Para fazer o check-in basta fazer a leitura do QrCode</h7>
-      <div class="divider"></div>
-      <div class="modal-body">
-        <iframe class="frame" src="camera.html" height="100%" width="100%">
-        </iframe>
-      </div>
-    </div>
-  </div>
-  <div id="modal-qrcode2" class="modal">
-    <div class="modal-content">
-      <h6 class="title"></h6>
-      <h7>Para fazer o check-in basta fazer a leitura do QrCode</h7>
-      <div class="divider"></div>
-      <div class="modal-body">
-        <iframe class="frame" src="camera.html" height="100%" width="100%">
-        </iframe>
-      </div>
-    </div>
-  </div>
-  <div id="modal-qrcode3" class="modal">
+  <div id="modal-qrcode" class="modal">
     <div class="modal-content">
       <h6 class="title"></h6>
       <h7>Para fazer o check-in basta fazer a leitura do QrCode</h7>
@@ -261,7 +238,7 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-          crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
@@ -278,10 +255,7 @@
       $(function () {
         $('.button-collapse').sideNav();
         $('#modal-roteiros').modal();
-        $('#modal-qrcode0').modal();
-        $('#modal-qrcode1').modal();
-        $('#modal-qrcode2').modal();
-        $('#modal-qrcode3').modal();
+        $('#modal-qrcode').modal();
         $('#modal-avaliar-tour').modal();
         $('select').material_select();
 
@@ -329,10 +303,10 @@
         $('.card-categoria').on('click', function () {
 
           $('#start').find('option.delete').remove();
-          if($(this).attr('data-id') == '1'){
+          if ($(this).attr('data-id') == '1') {
             $('#start').append('<option class="delete" value="1">Pelourinho e centro histórico</option>' +
-                '<option class="delete" value="2">Aventura no Elevador</option>');
-          }else if($(this).attr('data-id') == '3'){
+              '<option class="delete" value="2">Aventura no Elevador</option>');
+          } else if ($(this).attr('data-id') == '3') {
             $('#start').append('<option class="delete" value="3">Igrejas do Centro</option>');
           }
 
@@ -350,9 +324,9 @@
           if ($(this).val() == '1') {
             texto = "Uma visita a Salvador, na Bahia, não pode ser completa sem um tour, mesmo que rápido, pelo Pelourinho. É a oportunidade que o visitante tem de conferir os casarões coloridos, ver a Baía de Todos os Santos, o Mercado Modelo do alto e tirar as clássicas fotos da cidade com o Elevador Lacerda. E é claro, conhecer algumas das igrejas mais bonitas da capital!" +
               "<br>Caso queira contratar um guia: Ligue para seu João (71) 99127-2774."
-          }else if ($(this).val() == '2') {
+          } else if ($(this).val() == '2') {
             texto = "O Elevador Lacerda é o primeiro elevador urbano do mundo. Em 8 de dezembro de 1873, quando foi inaugurado, era o mais alto do mundo, com 63 metros." +
-                "<br>Caso queira contratar um guia: Ligue para seu João (71) 99127-2774."
+              "<br>Caso queira contratar um guia: Ligue para seu João (71) 99127-2774."
           }
 
           $('.descricao-roteiro').html(texto);
@@ -360,26 +334,26 @@
           $('#submit').prop('disabled', false);
         });
 
-        $('.stars').on('click', 'i', function(){
+        $('.stars').on('click', 'i', function () {
           var parent = $(this).closest('.stars');
           parent.find('i').removeClass('selected');
           $(this).addClass('selected');
         });
 
-        $('#avaliar-tour').on('click', function(){
+        $('#avaliar-tour').on('click', function () {
           // Retrieve the object from storage
           var storage_tours = localStorage.getItem('tours');
-          if(storage_tours != null){
+          if (storage_tours != null) {
             storage_tours = JSON.parse(storage_tours);
-          }else{
+          } else {
             storage_tours = [];
           }
 
           storage_tours.push(
-              {
-                nome: $('#start').find('option:selected').text(),
-                nota: $('.stars i.selected').nextAll().length + 1
-              });
+            {
+              nome: $('#start').find('option:selected').text(),
+              nota: $('.stars i.selected').nextAll().length + 1
+            });
 
           localStorage.setItem('tours', JSON.stringify(storage_tours));
 
@@ -441,7 +415,7 @@
             lat: -12.974190, lng: -38.512865
           }
         }
-      }else if (checkboxArray.value == "2") {
+      } else if (checkboxArray.value == "2") {
         waypts = []
 
         end = {
@@ -462,7 +436,7 @@
           title: el.name
         });
         marker.addListener('click', function () {
-          var modal = $('#modal-qrcode'+i);
+          var modal = $('#modal-qrcode');
           modal.find('.title').html(el.name);
           modal.modal('open');
         });
