@@ -69,16 +69,28 @@
   .stars i:hover, .stars i:hover ~ i, .stars i.selected, .stars i.selected ~ i{
     color: #fec00f;
   }
+  .logo-title{
+    top: 10px;
+    width: 200px;
+    position: relative;
+    height: 40px;
+  }
+  nav a {
+    color: #d6a22c;
+  }
+  .btn {
+    color: #d6a22c; 
+  }
 </style>
 </head>
   <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><</a>
+  <nav class="light-blue black" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img class="logo-title" src="./assets/images/logo-horizontal-pelo.png"/></a>
       <ul id="slide-out" class="side-nav">
         <li>
           <div class="user-view">
             <div class="background">
-              <img src="http://www.firstclassbus.com.br/wp-content/uploads/2015/04/Casarios-Centro-Historico-Foto-Rita-Barreto-3454-630x300.jpg">
+              <img src="http://www.firstclassbus.com.br/wp-content/uploads/2015/04/Casarios-Centro-Historico-Foto-Rita-Barreto-3454-630x300.jpg"/>
             </div>
             <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
             <a href="#!name"><span class="white-text name">Maria Claudia</span></a>
@@ -120,7 +132,7 @@
     <div id="map"></div>
 
     <div class="btn-action-map">
-      <button id="ver-roteiros" class="waves-effect waves-light btn z-depth-4" data-target="modal-roteiros">Ver Roteiros</button>
+      <button id="ver-roteiros" class="waves-effect waves-light btn z-depth-4 black" data-target="modal-roteiros">Ver Roteiros</button>
       <button id="encerrar-tour" class="waves-effect waves-light btn z-depth-4 red darken-4" data-target="modal-avaliar-tour" style="display: none">Encerrar Tour</button>
     </div>
 
